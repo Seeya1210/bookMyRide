@@ -4,3 +4,5 @@ GraphQl application to support searching nearBy rides, booking a ride and viewin
 Sample graphql queries are added under test/resources which can be executed on http://localhost:8080/graphiql for testing.
 
 Sample POSTMAN collection is also included under test/resources to test on POSTMAN.
+
+MySql scripts are included under resources/dbScripts. 
