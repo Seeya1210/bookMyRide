@@ -1,0 +1,94 @@
+{
+	"info": {
+		"_postman_id": "7ce43359-d57e-445e-9ece-c7c359ea7f97",
+		"name": "BookMyCab",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Book a cab",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"query\": \"query bookRide( $tripInfo : TripInfoInput!){ bookRide(tripInfo:$tripInfo){ id }\",\r\n    \"variables\": {\r\n        \"tripInfo\": {\r\n            \"userId\": 1,\r\n            \"cabId\":3,\r\n            \"destination\" : {\r\n                \"latitude\": 20.003057,\r\n                \"longitude\": 73.734773\r\n            },\r\n            \"source\" : {\r\n                 \"latitude\": 19.953394,\r\n                \"longitude\": 73.837719\r\n            }\r\n        }\r\n    },\r\n    \"operationName\": \"bookRide\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search near by rides",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"query\": \"query searchNearestRides( $location : LocationInput!){ searchNearestRides(location:$location){ id cabNumber type description distance driverInfo{firstName lastName phoneNo } }}\",\r\n    \"variables\": {\r\n        \"location\": {\r\n            \"latitude\": 20.003057,\r\n            \"longitude\": 73.734773\r\n        }\r\n    },\r\n    \"operationName\": \"searchNearestRides\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get ride history",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"query\": \"query getRideHistory( $userId : ID!){ getRideHistory(userId:$userId){ id createTs destination{id name} source{id name} cabInfo { id type cabNumber description driverInfo{id firstName lastName phoneNo }}}}\",\r\n    \"variables\": {\r\n        \"userId\": 3\r\n    },\r\n    \"operationName\": \"getRideHistory\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/graphql",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,0 +1,81 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+type Query {
+	
+	searchNearestRides(location : LocationInput!) : [CabInfo]
+	
+	getRideHistory(userId : ID!) : [TripInfo]
+}
+
+type Mutation {
+
+	bookRide(tripInfo:TripInfoInput!) : TripInfo
+}
+
+type User{
+  id: ID!
+  firstName: String!
+  lastName: String!
+  phoneNo: String!
+  email:String!
+}
+
+type Location{
+	id:ID!
+	name:String
+	latitude:BigDecimal!
+	longitude:BigDecimal!
+}
+
+input LocationInput{
+	latitude:BigDecimal!
+	longitude:BigDecimal!
+	name:String
+}
+
+type CabInfo{
+	id:ID!
+	type:CabType!
+	cabNumber: String!
+	description:String!
+	driverInfo:User!
+	distance:BigDecimal
+}
+
+type TripInfo{
+	id:ID!
+	userInfo:User!
+	cabInfo:CabInfo!
+	destination:Location!
+	source:Location!
+	fare:BigDecimal!
+	paymentMode:PaymentMode
+	distanceKm:BigDecimal
+	createTs:Long!
+	updateTs:Long
+}
+
+input TripInfoInput{
+	userId: ID!
+	cabId:ID!
+	destination:LocationInput!
+	source:LocationInput!
+}
+
+enum PaymentMode{
+	CASH
+	PAYTM
+	GPAY
+	RIDEWALLET
+}
+
+enum CabType{
+	SEDAN
+	MICRO
+	MINI
+	AUTO
+
+}

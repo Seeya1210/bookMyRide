@@ -1,0 +1,44 @@
+1. Search nearby cabs:
+{
+    "query": "query searchNearestRides( $location : LocationInput!){ searchNearestRides(location:$location){ id cabNumber type description distance driverInfo{firstName lastName phoneNo } }}",
+    "variables": {
+        "location": {
+            "latitude": 20.003057,
+            "longitude": 73.734773
+        }
+    },
+    "operationName": "searchNearestRides"
+}
+
+2.Book a ride:
+
+{
+    "query": "mutation bookRide( $tripInfo : TripInfoInput!){ bookRide(tripInfo:$tripInfo){ id }}",
+    "variables": {
+        "tripInfo": {
+            "userId": 3,
+            "cabId":5,
+            "destination" : {
+                "latitude": 20.050009,
+                "longitude": 73.734773,
+                "name" : "Ashok Sthambh, Nashik 2"
+            },
+            "source" : {
+                 "latitude": 20.003057,
+                "longitude": 73.734773,
+                "name" : "Upanagar, Nashik 3"
+            }
+        }
+    },
+    "operationName": "bookRide"
+}
+
+3. Get ride history:
+
+{
+    "query": "query getRideHistory( $userId : ID!){ getRideHistory(userId:$userId){ id createTs destination{id name} source{id name} cabInfo { id type cabNumber description driverInfo{id firstName lastName phoneNo }}}}",
+    "variables": {
+        "userId": 3
+    },
+    "operationName": "getRideHistory"
+}
