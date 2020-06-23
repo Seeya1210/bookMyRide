@@ -1,4 +1,4 @@
-package com.bookmyride.demo.resolver;
+package com.bookmyride.demo.datafetchers;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

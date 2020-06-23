@@ -16,6 +16,7 @@ import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
 
+import com.bookmyride.demo.datafetchers.GraphQLDataFetchers;
 import com.bookmyride.demo.model.CabInfo;
 import com.bookmyride.demo.model.Location;
 import com.bookmyride.demo.model.User;
