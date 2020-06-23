@@ -19,6 +19,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import com.bookmyride.demo.configuration.BookRideStoredProcedure;
 import com.bookmyride.demo.dao.RidesDAO;
 import com.bookmyride.demo.exception.SystemFailureException;
 import com.bookmyride.demo.exception.TripInfoNotFoundException;

@@ -1,4 +1,4 @@
-package com.bookmyride.demo.dao.impl;
+package com.bookmyride.demo.configuration;
 
 import java.sql.Timestamp;
 import java.sql.Types;
@@ -6,11 +6,11 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.SqlOutParameter;
 import org.springframework.jdbc.core.SqlParameter;
 import org.springframework.jdbc.object.StoredProcedure;
-import org.springframework.stereotype.Component;
 
 import com.bookmyride.demo.model.RideInDTO;
 
@@ -19,7 +19,7 @@ import com.bookmyride.demo.model.RideInDTO;
  * @author seeya.wamane
  *
  */
-@Component
+@Configuration
 public class BookRideStoredProcedure extends StoredProcedure {
 	
 	

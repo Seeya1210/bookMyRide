@@ -14,21 +14,21 @@ import graphql.language.SourceLocation;
  *
  */
 public class SystemFailureException extends RuntimeException implements GraphQLError {
-	
+
 	private static final long serialVersionUID = 1L;
 	private Map<String, Object> extensions = new HashMap<>();
-	
+
 	public SystemFailureException(String message, Exception e) {
-        super(message);
-        extensions.put("Response", e.getMessage());
-        extensions.put("status code", 500);
-    }
+		super(message);
+		extensions.put("Response", e.getMessage());
+		extensions.put("status code", 500);
+	}
 
+	@Override
+	public Map<String, Object> getExtensions() {
+		return extensions;
+	}
 
-	 @Override
-	    public Map<String, Object> getExtensions() {
-	        return extensions;
-	    }
 	@Override
 	public List<SourceLocation> getLocations() {
 		return null;
